@@ -44,3 +44,7 @@ def emotion_detector(text_to_analyze):
     
     except rq.exceptions.RequestException as e:
         return f"Error: {e}"
+
+
+if __name__ =="__main__":
+    print(emotion_detector(" I am so happy I am doing this"))
