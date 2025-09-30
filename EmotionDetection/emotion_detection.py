@@ -7,11 +7,19 @@ def emotion_detector(text_to_analyze):
     
     try:
         response = rq.post(url, json=input_data, headers=headers, timeout=10)
-        if response.status_code == 200:
+        if response.status_code == 400:
+            return {
+                'anger': None,
+                'disgust': None,
+                'fear': None,
+                'joy': None,
+                'sadness': None,
+                'dominant_emotion': None,
+                'status_code': 400
+            }
+        elif response.status_code == 200:   
             formated_response = json.loads(response.text)
-            
             emotion = formated_response["emotionPredictions"][0]["emotion"]
-            
             anger = emotion.get("anger", 0)
             disgust = emotion.get("disgust", 0)
             fear = emotion.get("fear", 0)
@@ -34,7 +42,8 @@ def emotion_detector(text_to_analyze):
                 'fear': fear,
                 'joy': joy,
                 'sadness': sadness,
-                'dominant_emotion': dominant_emotion
+                'dominant_emotion': dominant_emotion,
+                'status_code': 200
             }
         else:
             return "Try again" 
@@ -47,4 +56,4 @@ def emotion_detector(text_to_analyze):
 
 
 if __name__ =="__main__":
-    print(emotion_detector(" I am so happy I am doing this"))
+    print(emotion_detector("I am so happy I am doing this"))
