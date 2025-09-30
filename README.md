@@ -16,11 +16,11 @@ It demonstrates how to create and deploy an AI-based web application that detect
 ---
 
 ## 📂 Project Structure
-app.py # Flask web application
-emotion_detection.py # Core Watson NLP logic
-requirements.txt # Python dependencies
-tests/test_app.py # Unit tests
-static/ # CSS/JS assets
-templates/ # HTML templates
-README.md # Documentation
-pylintrc # Static analysis configuration
+- app.py # Flask web application
+- emotion_detection.py # Core Watson NLP logic
+- requirements.txt # Python dependencies
+- tests/test_app.py # Unit tests
+- static/ # CSS/JS assets
+- templates/ # HTML templates
+- README.md # Documentation
+- pylintrc # Static analysis configuration
